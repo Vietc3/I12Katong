@@ -7,15 +7,17 @@ interface Props extends BoxProps {
     isLast?: boolean;
 }
 
-const MenuItem: React.FC<Props> = ({ children, isLast = false, to = '/', ...rest }) => {
+const MenuItem: React.FC<Props> = ({ children, isLast = false, to, ...rest }) => {
     return (
+        <Link href={to}>
         <Box variant={'ghost'} as={Button} {...rest}>
-            <Link href={to}>
+          
                 <a>
                     <Text display="block">{children}</Text>
                 </a>
-            </Link>
+          
         </Box>
+        </Link>
     );
 };
 

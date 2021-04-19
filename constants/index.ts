@@ -4,15 +4,15 @@ export const NAVBAR_LINKS = [
         name: 'Home',
     },
     {
-        to: '/',
+        to: '/store',
         name: 'Store',
     },
     {
-        to: '/',
+        to: '/promotion',
         name: 'Promotion',
     },
     {
-        to: '/',
+        to: '/event',
         name: 'Event',
     },
 ];
@@ -22,9 +22,9 @@ export const FOOTER_LINKS = [
         heading: 'Discover',
         links: [
             { href: '/', title: 'Home' },
-            { href: '/', title: 'Store' },
-            { href: '/', title: 'Promotion' },
-            { href: '/', title: 'Event' },
+            { href: '/store', title: 'Store' },
+            { href: '/promotion', title: 'Promotion' },
+            { href: '/event', title: 'Event' },
         ],
     },
     {

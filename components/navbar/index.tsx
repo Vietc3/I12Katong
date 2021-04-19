@@ -34,8 +34,8 @@ const Navbar: React.FC<Props> = () => {
                 <Button variant="ghost">
                 
                     <Link href="/">
-                    <a>
-                        <Logo color={colors.primary} />
+                        <a>
+                            <Logo color={colors.primary} />
                         </a>
                     </Link>
                    
