@@ -1,6 +1,6 @@
 import { Divider, Box, Heading, } from "@chakra-ui/react";
 import React from 'react';
-
+import useColorTheme from '../../hooks/useColorTheme';
 import PostCard from '../cards/PostCard';
 import { Post } from '../../interfaces';
 
@@ -17,6 +17,7 @@ const ListEventsCard = ({
     onClickPost
 }: Props) => {
     const events = blok.events;
+    const colors = useColorTheme();
     return (<>
         <Divider width="100%" mt="1.6rem" mb=".3rem" mx="auto" />
 
@@ -25,8 +26,9 @@ const ListEventsCard = ({
                 transition="ease-in 0.15s"
                 fontSize="4xl"
                 bottom="30px"
-                color="black">
-                Events
+                textAlign="center"
+                color={colors.primary}>
+                EVENTS
             </Heading>
             <Box d="flex" flexDirection={{ base: 'column', lg: 'row' }}>
 

@@ -16,7 +16,7 @@ const DrawerMenu: React.FC<Props> = ({ isOpen, onClose, children }) => {
                 <DrawerContent>
                     <DrawerCloseButton />
                     <Box paddingY="3rem">
-                        <Logo color="primary" w="100%" textAlign="center" />
+                        <Logo  w="100%" textAlign="center" />
                         {children}
                     </Box>
                 </DrawerContent>

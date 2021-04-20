@@ -31,10 +31,10 @@ const PostCard = ({
     const [hover, setHover] = useState(false);
     const colors = useColorTheme();
     const flexDirection: FlexDirection = useBreakpointValue({ base: 'column', md: column ? 'column' : 'row' });
-  
+
     const vaildForm = moment(post.validFrom).format("MMM Do");
-    const validTo =moment(post.validTo).format("MMM Do");
-    
+    const validTo = moment(post.validTo).format("MMM Do");
+
     return (
         <Card
             p={4}
@@ -49,6 +49,7 @@ const PostCard = ({
             display="flex"
             {...props}
             flexDirection={flexDirection}
+            color={colors.primary}
         >
             <Box>
                 <Image
@@ -60,18 +61,18 @@ const PostCard = ({
                     borderRadius={styles.borderRadius}
                 />
             </Box>
-            <Box mt={{ base: 4, md: 2 }} ml={{ md: 6 }}>
+            <Box mt={{ base: 4, md: 2 }} ml={{ md: 6 }} color={colors.primary}>
                 <Text
                     fontWeight="bold"
                     textTransform="uppercase"
                     fontSize="sm"
                     letterSpacing="wide"
-                    color={colors.primary}
+                 
                 >
                     {post.title}
                 </Text>
-                <Text mt={2} fontSize="xs" color="gray.500">
-                   {`${vaildForm}-${validTo}`}
+                <Text mt={2} fontSize="xs" >
+                    {`${vaildForm}-${validTo}`}
                 </Text>
                 <Text
                     mt={1}
@@ -80,11 +81,10 @@ const PostCard = ({
                     lineHeight="normal"
                     fontWeight="semibold"
                     href="#"
-                    color={colors.secondary}
                 >
                     {_.upperFirst(post.sumary)}
                 </Text>
-               
+
             </Box>
         </Card>
     );

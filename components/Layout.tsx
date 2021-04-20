@@ -16,7 +16,9 @@ const Layout: React.FC<Props> = ({ children, title = 'Modern News', ...props }) 
             <meta charSet="utf-8" />
             <meta name="viewport" content="initial-scale=1.0, width=device-width" />
             <link rel="preconnect" href="https://fonts.gstatic.com"/>
-            <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@200&family=Playfair+Display&display=swap" rel="stylesheet"/>
+            <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@200;400;600;700&family=Playfair+Display&display=swap" rel="stylesheet"/>
+            
+          
         </Head>
             <Box>
                 <header>

@@ -1,5 +1,5 @@
 export const colors = {
-    primary: '#E31421',
+    primary: '#A68340',
     default: {
         light: '#494949',
         dark: '#f0f0f0',
@@ -49,6 +49,6 @@ export default {
     },
     fonts: {
         heading: 'Playfair Display, sans-serif',
-        body: 'Inter, sans-serif',
+        body: 'Mulish, sans-serif',
     },
 };

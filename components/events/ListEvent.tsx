@@ -3,6 +3,7 @@ import React from 'react';
 
 import PostCard from '../cards/PostCard';
 import { Post } from '../../interfaces';
+import useColorTheme from '../../hooks/useColorTheme';
 
 type Props = {
     blok: any;
@@ -17,17 +18,18 @@ const ListEvent = ({
     onClickPost
 }: Props) => {
     const events = blok.events;
+    const colors = useColorTheme();
     return (<>
-        <Box as="section" mt="10px">
+        <Box as="section" mt="10px" p={10}>
             <Heading
                 transition="ease-in 0.15s"
                 fontSize="4xl"
                 bottom="30px"
-                color="black">
+                color={colors.primary}>
                Event
             </Heading>
             <Box pt={5} pb={5} w={{ base: '100%', lg: '30%' }}>
-                <Select placeholder="All Catelogries" size="lg" />
+                <Select color={colors.primary} placeholder="All Catelogries" size="lg" />
             </Box>
             <SimpleGrid columns={[1, null, 4]} spacing="20px" >
                 {events.map((event: any, index: number) => (

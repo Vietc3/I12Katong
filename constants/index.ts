@@ -1,19 +1,19 @@
 export const NAVBAR_LINKS = [
     {
         to: '/',
-        name: 'Home',
+        name: 'HOME',
     },
     {
         to: '/store',
-        name: 'Store',
+        name: 'STORES',
     },
     {
         to: '/promotion',
-        name: 'Promotion',
+        name: 'PROMOTIONS',
     },
     {
         to: '/event',
-        name: 'Event',
+        name: 'EVENTS',
     },
 ];
 

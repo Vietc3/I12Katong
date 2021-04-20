@@ -1,8 +1,9 @@
-import { Select, Box, Heading, SimpleGrid } from "@chakra-ui/react";
+import { Select, Box, Heading, SimpleGrid, color } from "@chakra-ui/react";
 import React from 'react';
 
 import StoreCard from '../cards/StoreCard';
 import { Post } from '../../interfaces';
+import useColorTheme from '../../hooks/useColorTheme';
 
 type Props = {
     blok: any;
@@ -17,19 +18,21 @@ const ListStore = ({
     onClickPost
 }: Props) => {
     const stores = blok.stores;
+    const colors = useColorTheme();
     return (<>
-        <Box as="section" mt="10px">
+        <Box as="section" p={{base: '00px', md: '20px'}} mt="10px">
             <Heading
                 transition="ease-in 0.15s"
                 fontSize="4xl"
-                fontFamily="Playfair Display"
                 bottom="30px"
-                color="black">
-                Store
+                textAlign="center"
+                color={colors.primary}
+                >
+                STORES
             </Heading>
 
             <Box pt={5} w={{ base: '100%', lg: '30%' }}>
-                <Select placeholder="All Catelogries" size="lg" />
+                <Select  color={colors.primary} placeholder="All Catelogries" size="lg" />
             </Box>
 
             <SimpleGrid columns={[1, null, 4]} spacing="20px" >

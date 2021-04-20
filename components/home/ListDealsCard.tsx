@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Box, useMediaQuery,Heading,Divider } from '@chakra-ui/react';
-
+import useColorTheme from '../../hooks/useColorTheme';
 import PhotoCard from '../cards/PhotoCard';
 import { Post } from '../../interfaces';
 type Props = {
@@ -27,7 +27,7 @@ const ListDealsCard = ({
         setMaxHalfPhotoHeight(isLargerThanMd ? containerHeight / 2 - 2 * margin : containerHeight / 2 - 2 * margin);
     }, [isLargerThanMd]);
 
-    console.log(blok);
+    const colors = useColorTheme();
     const deals = blok.deals;
 
     return (<>
@@ -37,10 +37,11 @@ const ListDealsCard = ({
                 transition="ease-in 0.15s"
                 fontSize="4xl"
                 bottom="30px"
-                color="black">
+                textAlign="center"
+                color={colors.primary}>
                 Deals
             </Heading>
-            <Box flex={1} d="flex" maxHeight={`${maxContainerHeight}px`} flexDirection={{ base: 'column', md: 'row' }}>
+            <Box  color={colors.primary} flex={1} d="flex" maxHeight={`${maxContainerHeight}px`} flexDirection={{ base: 'column', md: 'row' }}>
                 <PhotoCard
                     title={deals[0].content.title}
                     imgSrc={deals[0].content.desktopImage.filename}

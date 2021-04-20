@@ -26,48 +26,47 @@ const Navbar: React.FC<Props> = () => {
                 wrap="wrap"
                 w="100%"
                 py={8}
-                pl={2}
-                pr={{ base: 4, md: 6 }}
+                // pl={2}
+                pr={{ base: 2, md: 4 }}
                 maxW={styles.mainMaxWidth}
                 mx={'auto'}
             >
-                <Button variant="ghost">
-                
+                <Button variant="ghost">                
                     <Link href="/">
                         <a>
                             <Logo />
                         </a>
                     </Link>
-                   
                 </Button>
                 <MenuToggle toggle={toggle} isOpen={isOpen} />
                 <Box display={{ base: 'none', md: 'flex' }} flexBasis={{ base: '100%', md: 'auto' }}>
                     <Stack
-                        spacing={8}
+                        spacing={20}
                         align="center"
                         justify={['center', 'space-between', 'flex-end', 'flex-end']}
                         direction={['column', 'row', 'row', 'row']}
                         pt={[4, 4, 0, 0]}
+                        
                     >
                         {NAVBAR_LINKS.map(({ to, name }) => {
                             return (
-                                <MenuItem color={colors.secondary} key={name} to={to}>
+                                <MenuItem color={colors.primary} key={name} to={to}>
                                     {name}
                                 </MenuItem>
                             );
                         })}
                     </Stack>
-                    <ThemeToggler d={{ base: 'none', md: 'flex' }} />
+                    {/* <ThemeToggler d={{ base: 'none', md: 'flex' }} /> */}
                 </Box>
                 <DrawerMenu isOpen={isOpen} onClose={() => setIsOpen(false)}>
                     {NAVBAR_LINKS.map(({ to, name }) => {
                         return (
-                            <MenuItem w="100%" key={name} to={to} onClick={() => setIsOpen(false)}>
+                            <MenuItem w="100%" color={colors.primary} key={name} to={to} onClick={() => setIsOpen(false)}>
                                 {name}
                             </MenuItem>
                         );
                     })}
-                    <ThemeToggler onClick={() => setIsOpen(false)} w="100%" d={{ base: 'flex', md: 'none' }} />
+                    {/* <ThemeToggler onClick={() => setIsOpen(false)} w="100%" d={{ base: 'flex', md: 'none' }} /> */}
                 </DrawerMenu>
             </Flex>
         </Box>

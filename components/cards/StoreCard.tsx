@@ -34,7 +34,7 @@ const StoreCard = ({
 
     return (
         <Card
-            p={4}
+            p={{base:4, md:0}}
             justifyContent="flex-start"
             cursor="pointer"
             onMouseEnter={() => setHover(true)}
@@ -68,7 +68,7 @@ const StoreCard = ({
                     {post.title}
                 </Text>
 
-                <Text mt={2} fontSize="xs" color="gray.500">
+                <Text mt={2} fontSize="xs"  color={colors.primary}>
                     Unit No: {post.unitNo}
                 </Text>
                 <HStack spacing="5px">

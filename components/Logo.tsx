@@ -1,12 +1,10 @@
 import React from 'react';
-import { Box, Text } from '@chakra-ui/react';
+import { Box, Image } from '@chakra-ui/react';
 
 const Logo = (props: any) => {
     return (
         <Box {...props}>
-            <Text fontSize="1.5rem" fontWeight="bold">
-                i12 Katong
-            </Text>
+            <Image src="/logo/i12Logo.PNG" fontWeight="bold"/>                
         </Box>
     );
 };
