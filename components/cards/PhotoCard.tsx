@@ -51,6 +51,7 @@ const PhotoCard: React.FC<Props> = ({
                 bottom="30px"
                 left="30px"
                 color="light"
+                fontFamily="Mulish, sans-serif;"
             >
                 {title.toUpperCase()}
             </Heading>

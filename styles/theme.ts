@@ -48,7 +48,7 @@ export default {
         },
     },
     fonts: {
-        heading: 'Inter, sans-serif',
+        heading: 'Playfair Display, sans-serif',
         body: 'Inter, sans-serif',
     },
 };

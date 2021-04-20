@@ -15,16 +15,18 @@ const Layout: React.FC<Props> = ({ children, title = 'Modern News', ...props }) 
             <title>{title}</title>
             <meta charSet="utf-8" />
             <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+            <link rel="preconnect" href="https://fonts.gstatic.com"/>
+            <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet"/>
         </Head>
-        <Box>
-            <header>
-                <Navbar />
-            </header>
-            <Box as="main" minH={'80vh'} maxW={styles.mainMaxWidth} marginX="auto" {...props}>
+            <Box>
+                <header>
+                    <Navbar />
+                </header>
+                {/* <Box as="main" minH={'80vh'} maxW={styles.mainMaxWidth} marginX="auto" {...props}> */}
                 {children}
+                {/* </Box> */}
+                <Footer />
             </Box>
-            <Footer />
-        </Box>
     </Box>
 );
 

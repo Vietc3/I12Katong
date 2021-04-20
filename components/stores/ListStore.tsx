@@ -22,6 +22,7 @@ const ListStore = ({
             <Heading
                 transition="ease-in 0.15s"
                 fontSize="4xl"
+                fontFamily="Playfair Display"
                 bottom="30px"
                 color="black">
                 Store

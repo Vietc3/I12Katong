@@ -7,8 +7,6 @@ import Image from '../Image';
 import Card from './Card';
 import _ from 'lodash';
 
-
-
 interface Props extends BoxProps {
     post: any;
     column?: boolean;
@@ -28,10 +26,10 @@ const StoreCard = ({
     titleFontSize = '1.4rem',
     ...props
 }: Props) => {
+
     const [hover, setHover] = useState(false);
     const colors = useColorTheme();
     const flexDirection: FlexDirection = useBreakpointValue({ base: 'column', md: column ? 'column' : 'row' });
-
     const tags = post.tags;
 
     return (
@@ -70,8 +68,6 @@ const StoreCard = ({
                     {post.title}
                 </Text>
 
-
-
                 <Text mt={2} fontSize="xs" color="gray.500">
                     Unit No: {post.unitNo}
                 </Text>
@@ -86,10 +82,7 @@ const StoreCard = ({
                         </Tag>
                     )) : null}
                 </HStack>
-
             </Box>
-
-
         </Card>
     );
 };
