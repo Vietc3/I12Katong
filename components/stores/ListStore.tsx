@@ -32,7 +32,7 @@ const ListStore = ({
                 <Select placeholder="All Catelogries" size="lg" />
             </Box>
 
-            <SimpleGrid columns={[1, null, 4]} spacing="40px" >
+            <SimpleGrid columns={[1, null, 4]} spacing="20px" >
                 {stores.map((store: any, index: number) => (
                     <Box p="3" key={index} >
                         <StoreCard
