@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { Box, BoxProps, Text, useBreakpointValue } from '@chakra-ui/react';
+import { Box, BoxProps, Text, useBreakpointValue, Tag, TagLabel, HStack } from '@chakra-ui/react';
 import useColorTheme from '../../hooks/useColorTheme';
 import styles from '../../constants/styles';
 
 import Image from '../Image';
 import Card from './Card';
 import _ from 'lodash';
-import moment from 'moment';
+
 
 
 interface Props extends BoxProps {
@@ -20,7 +20,7 @@ interface Props extends BoxProps {
 
 type FlexDirection = 'row' | 'column' | undefined;
 
-const PostCard = ({
+const StoreCard = ({
     post,
     column = false,
     imgBoxSize,
@@ -31,10 +31,9 @@ const PostCard = ({
     const [hover, setHover] = useState(false);
     const colors = useColorTheme();
     const flexDirection: FlexDirection = useBreakpointValue({ base: 'column', md: column ? 'column' : 'row' });
-  
-    const vaildForm = moment(post.validFrom).format("MMM Do");
-    const validTo =moment(post.validTo).format("MMM Do");
-    
+
+    const tags = post.tags;
+
     return (
         <Card
             p={4}
@@ -70,24 +69,29 @@ const PostCard = ({
                 >
                     {post.title}
                 </Text>
+
+
+
                 <Text mt={2} fontSize="xs" color="gray.500">
-                   {`${vaildForm}-${validTo}`}
+                    Unit No: {post.unitNo}
                 </Text>
-                <Text
-                    mt={1}
-                    display="block"
-                    fontSize="lg"
-                    lineHeight="normal"
-                    fontWeight="semibold"
-                    href="#"
-                    color={colors.secondary}
-                >
-                    {_.upperFirst(post.sumary)}
-                </Text>
-               
+                <HStack spacing="5px">
+                    {tags ? tags.map((tag: any) => (
+                        <Tag
+                            key={tag}
+                            variant="solid"
+                            colorScheme="green"
+                        >
+                            <TagLabel>{tag}</TagLabel>
+                        </Tag>
+                    )) : null}
+                </HStack>
+
             </Box>
+
+
         </Card>
     );
 };
 
-export default PostCard;
+export default StoreCard;

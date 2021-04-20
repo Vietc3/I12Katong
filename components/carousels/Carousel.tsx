@@ -16,10 +16,7 @@ type Props ={
     blok: any
 }
 
-const Carousel = ({blok}:Props) => {
-
-    console.log(blok);
-    
+const Carousel = ({blok}:Props) => {    
     const arrowStyles = {
     cursor: "pointer",
     pos: "absolute",
@@ -71,8 +68,8 @@ const Carousel = ({blok}:Props) => {
       <Flex w="full" pos="relative" overflow="hidden" >
         <Flex h="500px" w="full" {...carouselStyle}>
 
-          {slides.map((slide :any ) => (
-              <CarouselItems blok={slide.content} />
+          {slides.map((slide :any, index:number ) => (
+              <CarouselItems key={index} blok={slide.content} />
           ))}
         
         </Flex>

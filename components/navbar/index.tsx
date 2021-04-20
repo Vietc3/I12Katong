@@ -35,7 +35,7 @@ const Navbar: React.FC<Props> = () => {
                 
                     <Link href="/">
                         <a>
-                            <Logo color={colors.primary} />
+                            <Logo />
                         </a>
                     </Link>
                    

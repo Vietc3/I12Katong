@@ -1,6 +1,10 @@
 import SbEditable from "storyblok-react";
 import Placeholder from "./Placeholder";
 import Carousel from "../carousels/Carousel";
+import ListDealsCard from "../home/ListDealsCard";
+import ListEventsCard from "../home/ListEventsCard";
+import ListStore from "../stores/ListStore";
+import ListEvent from "../events/ListEvent";
 
 /*
  * Our bloks dictionnary.
@@ -8,7 +12,11 @@ import Carousel from "../carousels/Carousel";
  * Keys are the same than their name in Storyblok.
  */
 const Components: any  = {
-    "list-carousels" : Carousel
+    "list-carousels" : Carousel,
+    "list-deal-lastest": ListDealsCard,
+    "list-event-lastest": ListEventsCard,
+    "list-all-stores":ListStore,
+    "list-all-events":ListEvent,
 };
 
 const Dynamic = ({ blok}: any) => {
