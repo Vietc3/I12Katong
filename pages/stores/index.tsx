@@ -1,17 +1,17 @@
 
-import { Heading, } from "@chakra-ui/react";
+
 import { GetStaticProps } from 'next';
 
-import Storyblok from "../lib/storyblok";
-import useStoryblok from "../lib/storyblok-hook";
+import Storyblok from "../../lib/storyblok";
+import useStoryblok from "../../lib/storyblok-hook";
 
-import StoryPage from "../components/storyPage/storyPage"
+import StoryPage from "../../components/storyPage/storyPage"
 
 type Props = {
     errors?: string;
     storyProp?: any;
 };
-const Store = ({storyProp}:Props) => {
+const Stores = ({storyProp}:Props) => {
     const story = useStoryblok(storyProp);
     return (
         <>
@@ -52,4 +52,4 @@ export const getStaticProps: GetStaticProps = async (context:any) => {
     }
 };
 
-export default Store;
+export default Stores;

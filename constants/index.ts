@@ -4,15 +4,15 @@ export const NAVBAR_LINKS = [
         name: 'HOME',
     },
     {
-        to: '/store',
+        to: '/stores',
         name: 'STORES',
     },
     {
-        to: '/promotion',
+        to: '/promotions',
         name: 'PROMOTIONS',
     },
     {
-        to: '/event',
+        to: '/events',
         name: 'EVENTS',
     },
 ];
