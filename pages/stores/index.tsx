@@ -11,6 +11,7 @@ type Props = {
     errors?: string;
     storyProp?: any;
 };
+
 const Stores = ({storyProp}:Props) => {
     const story = useStoryblok(storyProp);
     return (
@@ -31,14 +32,11 @@ export const getStaticProps: GetStaticProps = async (context:any) => {
           "resolve_relations": "list-all-stores.stores",
           cv: Date.now()
         }
-
         if (context.preview) {
           params.version = "draft"
           params.cv = Date.now()
         }
-      
-        let { data } = await Storyblok.get(`cdn/stories/${slug}`, params);
-   
+        let { data } = await Storyblok.get(`cdn/stories/${slug}`, params);   
         return {
           props: {
             storyProp: data ? data.story : false,

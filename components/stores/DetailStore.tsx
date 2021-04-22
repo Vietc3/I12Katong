@@ -1,117 +1,129 @@
 import {
-    Container,
-    SimpleGrid,
-    Image,
-    Flex,
-    Heading,
-    Text,
-    Stack,
-    StackDivider,
-    Icon,
-    useColorModeValue,
-  } from '@chakra-ui/react';
-  import {
-    IoAnalyticsSharp,
-    IoLogoBitcoin,
-    IoSearchSharp,
-  } from 'react-icons/io5';
-  import { ReactElement } from 'react';
-  import useColorTheme from '../../hooks/useColorTheme';
-  
-  interface FeatureProps {
-    text: string;
-    iconBg: string;
-    icon?: ReactElement;
-  }
-  
-  interface StoreProps {
-  store:any
-  }
-  
-  const Feature = ({ text, icon, iconBg }: FeatureProps) => {
-    return (
-      <Stack direction={'row'} align={'center'}>
-        <Flex
-          w={8}
-          h={8}
-          align={'center'}
-          justify={'center'}
-          rounded={'full'}
-          bg={iconBg}>
-          {icon}
-        </Flex>
-        <Text fontWeight={600}>{text}</Text>
-      </Stack>
-    );
-  };
-  
- const DetailStore = ({store}:StoreProps) => {
-    const colors = useColorTheme();    
-     
-     
-    return (
-      <Container maxW={'5xl'} py={12}>
-        <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
-        <Flex>
-            <Image
-              rounded={'md'}
-              alt={'feature image'}
-              src={
-                store.desktopImage.filename
-              }
-            />
-          </Flex>
-          <Stack spacing={4}>
+  Container,
+  SimpleGrid,
+  Image,
+  Flex,
+  Heading,
+  Text,
+  Stack,
+  StackDivider,
+  Icon,
+  Box,
+  useColorModeValue,
+} from '@chakra-ui/react';
+import {
+  IoLogoWhatsapp,
+  IoLocationSharp,
+  IoLogoEdge,
+} from 'react-icons/io5';
+import { ReactElement } from 'react';
+import useColorTheme from '../../hooks/useColorTheme';
 
-            <Text
-              textTransform={'uppercase'}
-              color={'blue.400'}
-              fontWeight={600}
-              fontSize={'sm'}
-              bg={useColorModeValue('blue.50', 'blue.900')}
-              p={2}
-              alignSelf={'flex-start'}
-              rounded={'md'}>
-              {store.tags ? store.tags[0] : null}
+interface FeatureProps {
+  text: string;
+  iconBg: string;
+  icon?: ReactElement;
+}
+
+interface StoreProps {
+  store: any
+}
+
+const Feature = ({ text, icon }: FeatureProps) => {
+  return (
+    <Stack direction={'row'} align={'center'}>
+      <Flex
+        w={8}
+        h={8}
+        align={'center'}
+        justify={'center'}
+        rounded={'full'}
+       >
+        {icon}
+      </Flex>
+      <Text fontWeight={600}>{text}</Text>
+    </Stack>
+  );
+};
+
+const DetailStore = ({ store }: StoreProps) => {
+  const colors = useColorTheme();
+
+
+  return (
+    <Container maxW={'5xl'} py={12}>
+      <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
+        {/* <Flex> */}
+        <Image
+          rounded={'md'}
+          alt={'feature image'}
+          src={
+            store.desktopImage.filename
+          }
+        />
+        {/* </Flex> */}
+        <Stack spacing={4}>
+
+          <Text
+            textTransform={'uppercase'}
+            color="white"
+            fontWeight={600}
+            fontSize={'sm'}
+            bg={useColorModeValue(colors.primary, 'blue.900')}
+            p={2}
+            alignSelf={'flex-start'}
+            rounded={'md'}>
+
+            {store.categories}
+          </Text>
+
+          <Heading color={colors.primary} fontFamily="Mulish, sans-serif;">{store.title}</Heading>
+
+          <Stack
+            spacing={4}
+            divider={
+              <StackDivider
+                borderColor={useColorModeValue('gray.100', 'gray.700')}
+              />
+            }>
+            <Text color={colors.primary} pt={5} fontSize={'lg'}>
+              PRODUCTS AND SERVICES
             </Text>
+            <Text fontSize={'md'}>
+              {store.description}
+            </Text>
+            <Box color={colors.primary}>
+              <Text fontSize={'lg'}>
+                STORE DETAILS
+            </Text>
+            <Feature
+                icon={
+                  <Icon as={IoLogoWhatsapp} color={'yellow.500'} w={5} h={5} />
+                }
+                
+                text={store.phone}
+              />
+            <Feature
+                icon={
+                  <Icon as={IoLocationSharp} color={'yellow.500'} w={5} h={5} />
+                }
+                
+                text={store.location}
+              />
+            <Feature
+                icon={
+                  <Icon as={IoLogoEdge} color={'yellow.500'} w={5} h={5} />
+                }
+                text={store.website}
+              />
 
-            <Heading color={colors.primary} fontFamily="Mulish, sans-serif;">{store.title}</Heading>
-            {/* <Text color={'gray.500'} fontSize={'lg'}>
-              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-              nonumy eirmod tempor invidunt ut labore
-            </Text> */}
-            <Stack
-              spacing={4}
-              divider={
-                <StackDivider
-                  borderColor={useColorModeValue('gray.100', 'gray.700')}
-                />
-              }>
-              <Feature
-                icon={
-                  <Icon as={IoAnalyticsSharp} color={'yellow.500'} w={5} h={5} />
-                }
-                iconBg={useColorModeValue('yellow.100', 'yellow.900')}
-                text={'Business Planning'}
-              />
-              <Feature
-                icon={<Icon as={IoLogoBitcoin} color={'green.500'} w={5} h={5} />}
-                iconBg={useColorModeValue('green.100', 'green.900')}
-                text={'Financial Planning'}
-              />
-              <Feature
-                icon={
-                  <Icon as={IoSearchSharp} color={'purple.500'} w={5} h={5} />
-                }
-                iconBg={useColorModeValue('purple.100', 'purple.900')}
-                text={'Market Analysis'}
-              />
-            </Stack>
+            </Box>
           </Stack>
-          
-        </SimpleGrid>
-      </Container>
-    );
-  }
+        </Stack>
 
-  export default DetailStore;
+      </SimpleGrid>
+    </Container>
+  );
+}
+
+export default DetailStore;

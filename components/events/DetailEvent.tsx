@@ -13,7 +13,7 @@ import {
   import {
     IoAnalyticsSharp,
     IoLogoBitcoin,
-    IoSearchSharp,
+    IoIosPhonePortrait,
   } from 'react-icons/io5';
   import { ReactElement } from 'react';
   import useColorTheme from '../../hooks/useColorTheme';

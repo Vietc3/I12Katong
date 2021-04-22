@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Box, BoxProps, Text, useBreakpointValue, Tag, TagLabel, HStack } from '@chakra-ui/react';
 import useColorTheme from '../../hooks/useColorTheme';
-
+import styles from '../../constants/styles';
 import { useRouter } from 'next/router';
 import Image from '../Image';
 import Card from './Card';
@@ -34,7 +34,6 @@ const StoreCard = ({
     const flexDirection: FlexDirection = useBreakpointValue({ base: 'column', md: column ? 'column' : 'row' });
     const tags = post.tags;
     const router = useRouter();
-    
     const onClickStore = () => {
         router.push(`/stores/${idStore}`);
         window.scrollTo(0, 0);
@@ -55,17 +54,16 @@ const StoreCard = ({
             {...props}
             flexDirection={flexDirection}
             onClick={()=>onClickStore()}
-            borderRadius={0}
             border={0}
         >
             <Box>
                 <Image
                     width={{ base: '100%', lg: column ? '100%' : 60 }}
                     height={{ base: 80, lg: column ? '15rem' : 40 }}
-                    src={post.desktopImage.filename}
+                    src={post.desktopImage.filename ? post.desktopImage.filename :null}
                     alt={'Photo of ' + post.title}
                     objectFit="cover"
-                    // borderRadius={styles.borderRadius}
+                    borderRadius={styles.borderRadius}
                 />
             </Box>
             <Box mt={{ base: 4, md: 2 }} ml={{ md: 6 }}>

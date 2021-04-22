@@ -9,6 +9,8 @@ type Props = {
 };
 const StoreDetails = ({ storyProp }: Props) => {
     const story = useStoryblok(storyProp);
+ 
+    
     return (
         <>
             <DetailStore store={story.content} />

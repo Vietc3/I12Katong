@@ -1,5 +1,5 @@
 import {Center, Select, Box, Heading, SimpleGrid, Spacer } from "@chakra-ui/react";
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState,useMemo } from 'react';
 
 import StoreCard from '../cards/StoreCard';
 import useColorTheme from '../../hooks/useColorTheme';
@@ -14,17 +14,32 @@ const ListStore = ({
     blok
 }: Props) => {
 
-    const stores = blok.stores;
+    // const stores = blok.stores;
+    
     const colors = useColorTheme();
     const [paramSort, setParamSort] = useState('asc');
-    const [listStores, setlistStores] = useState(stores);
+    const [listStores, setlistStores] = useState(blok.stores);
+
     const onChangeSort = (event: any) => {
         setParamSort(event.target.value)
-    };
+        localStorage.setItem("sortStore",event.target.value);
+    };    
 
     useEffect(() => {
         sortBy(listStores, 'content.title', paramSort, setlistStores)
     }, [paramSort]);
+
+    const ListStore = useMemo(()=>listStores.map((store: any, index: number) => (
+        <Box p="3" key={index} >
+            <StoreCard
+                column
+                post={store.content}
+                idStore={store.id}
+                key={store.content}
+                titleFontSize={'1em'}
+            />
+        </Box>
+    )),[listStores])
 
     return (<>
         <Box as="section" p={{ base: '1', lg: '10px' }} mt="10px">
@@ -52,17 +67,7 @@ const ListStore = ({
                 </Box>
             </Box>
             <SimpleGrid pt={5} columns={[1, null, 4]} spacing="20px" >
-                {listStores.map((store: any, index: number) => (
-                    <Box p="3" key={index} >
-                        <StoreCard
-                            column
-                            post={store.content}
-                            idStore={store.id}
-                            key={store.content}
-                            titleFontSize={'1em'}
-                        />
-                    </Box>
-                ))}
+               {ListStore}
             </SimpleGrid>
         </Box>
     </>
