@@ -21,7 +21,7 @@ interface Props extends BoxProps {
 
 type FlexDirection = 'row' | 'column' | undefined;
 
-const PostCard = ({
+const EventCard = ({
     post,
     column = false,
     imgBoxSize,
@@ -97,4 +97,4 @@ const PostCard = ({
     );
 };
 
-export default PostCard;
+export default EventCard;

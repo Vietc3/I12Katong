@@ -1,9 +1,9 @@
-import { Flex, Box, Heading, SimpleGrid, Spacer } from "@chakra-ui/react";
-import React from 'react';
+import {Center, Select, Box, Heading, SimpleGrid, Spacer } from "@chakra-ui/react";
+import React, { useEffect, useState } from 'react';
 
 import StoreCard from '../cards/StoreCard';
 import useColorTheme from '../../hooks/useColorTheme';
-
+import sortBy from '../../common/functions/sortBy';
 type Props = {
     blok: any;
     margin?: number;
@@ -13,10 +13,21 @@ type Props = {
 const ListStore = ({
     blok
 }: Props) => {
+
     const stores = blok.stores;
     const colors = useColorTheme();
+    const [paramSort, setParamSort] = useState('asc');
+    const [listStores, setlistStores] = useState(stores);
+    const onChangeSort = (event: any) => {
+        setParamSort(event.target.value)
+    };
+
+    useEffect(() => {
+        sortBy(listStores, 'content.title', paramSort, setlistStores)
+    }, [paramSort]);
+
     return (<>
-        <Box as="section" p={{ base: '00px', md: '20px' }} mt="10px">
+        <Box as="section" p={{ base: '1', lg: '10px' }} mt="10px">
             <Heading
                 transition="ease-in 0.15s"
                 fontSize="3xl"
@@ -27,23 +38,21 @@ const ListStore = ({
             >
                 STORES
             </Heading>
-            {/* 
-            <Box pt={5} w={{ base: '100%', lg: '30%' }}>
-                <Select  color={colors.primary} placeholder="All Catelogries" size="lg" />
-            </Box> */}
-
-            <Flex color={colors.primary}
-                fontFamily="Mulish" fontWeight="bold">
-                <Box>
-                    Filter: LifeStyle
-                </Box>
+            <Box color={colors.primary}
+                fontFamily="Mulish" fontWeight="bold"
+                d="flex" flexDirection={{ base: 'column', lg: 'row' }}
+            >
                 <Spacer />
-                <Box >
-                    Sort by: A-Z
+                <Box d="flex" w={{ base: '100%', lg: '30%' }}>
+                    <Center pl="10%" h="100%" w="30%" display={{ base: 'none', lg: 'flex' }} textAlign="center">Sort By:</Center>
+                    <Select onChange={onChangeSort} w={{ base: '100%', lg: '70%' }} color={colors.primary} size="lg" >
+                        <option value="asc">A-Z</option>
+                        <option value="desc">Z-A</option>
+                    </Select>
                 </Box>
-            </Flex>
+            </Box>
             <SimpleGrid pt={5} columns={[1, null, 4]} spacing="20px" >
-                {stores.map((store: any, index: number) => (
+                {listStores.map((store: any, index: number) => (
                     <Box p="3" key={index} >
                         <StoreCard
                             column
@@ -54,7 +63,6 @@ const ListStore = ({
                         />
                     </Box>
                 ))}
-
             </SimpleGrid>
         </Box>
     </>

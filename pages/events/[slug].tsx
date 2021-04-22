@@ -15,8 +15,6 @@ const EventDetails = ({ storyProp }: Props) => {
            <DetailEvent event={story.content}/>
         </>
     );
-
-
 };
 export async function getStaticPaths() {
     try {

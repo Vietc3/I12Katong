@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Box, BoxProps, Text, useBreakpointValue, Tag, TagLabel, HStack } from '@chakra-ui/react';
 import useColorTheme from '../../hooks/useColorTheme';
-import styles from '../../constants/styles';
+
 import { useRouter } from 'next/router';
 import Image from '../Image';
 import Card from './Card';
