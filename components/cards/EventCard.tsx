@@ -38,7 +38,6 @@ const EventCard = ({
     const router = useRouter();
     const onClickEvent = () => {
         router.push(`/events/${idEvent}`);
-        window.scrollTo(0, 0);
     };
 
     return (
@@ -83,7 +82,7 @@ const EventCard = ({
                 <Text mt={2} fontSize="xs" >
                     {`${vaildForm}-${validTo}`}
                 </Text>
-                <Text
+                {/* <Text
                     mt={1}
                     display="block"
                     fontSize="lg"
@@ -92,7 +91,7 @@ const EventCard = ({
                     href="#"
                 >
                     {_.upperFirst(post.sumary)}
-                </Text>
+                </Text> */}
 
             </Box>
         </Card>
