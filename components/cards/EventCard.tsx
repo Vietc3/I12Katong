@@ -57,6 +57,8 @@ const EventCard = ({
             {...props}
             flexDirection={flexDirection}
             color={colors.primary}
+            borderRadius={0}
+            border={0}
         >
             <Box>
                 <Image

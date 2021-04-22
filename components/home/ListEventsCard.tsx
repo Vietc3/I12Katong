@@ -16,7 +16,6 @@ const ListEventsCard = ({
     const colors = useColorTheme();
     return (<>
         <Divider width="100%" mt="1.6rem" mb=".3rem" mx="auto" />
-
         <Box as="section" mt="10px">
             <Heading
                 transition="ease-in 0.15s"
@@ -27,7 +26,6 @@ const ListEventsCard = ({
                 EVENTS
             </Heading>
             <Box d="flex" flexDirection={{ base: 'column', lg: 'row' }}>
-
                 <Box p="3">
                     <EventCard
                         column
@@ -36,8 +34,6 @@ const ListEventsCard = ({
                         titleFontSize={'1em'}
                     />
                 </Box>
-
-
                 <Box p="3">
                     <EventCard
                         column
@@ -54,7 +50,6 @@ const ListEventsCard = ({
                         titleFontSize={'1em'}
                     />
                 </Box>
-
                 <Box p="3">
                     <EventCard
                         column
