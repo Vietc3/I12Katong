@@ -1,17 +1,18 @@
 import { GetStaticProps } from 'next';
 import Storyblok from "../../lib/storyblok";
 import useStoryblok from "../../lib/storyblok-hook";
-import DetailStore from "../../components/stores/DetailStore"
+import DetailEvent from "../../components/events/DetailEvent"
+
 
 type Props = {
     errors?: string;
     storyProp?: any;
 };
-const StoreDetails = ({ storyProp }: Props) => {
+const EventDetails = ({ storyProp }: Props) => {
     const story = useStoryblok(storyProp);
     return (
         <>
-            <DetailStore store={story.content} />
+           <DetailEvent event={story.content}/>
         </>
     );
 
@@ -20,17 +21,17 @@ const StoreDetails = ({ storyProp }: Props) => {
 export async function getStaticPaths() {
     try {
 
-        let slug = "?filter_query[component][in]=store"
+        let slug = "?filter_query[component][in]=event"
         let params = {
             version: "draft", // or 'published'
             cv: Date.now(),
 
         }
         let { data } = await Storyblok.get(`cdn/stories/${slug}`, params);
-        const paths = data.stories.map((store: any) => {
+        const paths = data.stories.map((event: any) => {
             return {
                 params: {
-                    slug: store.id.toString()
+                    slug: event.id.toString()
                 }
             }
         }
@@ -72,4 +73,4 @@ export const getStaticProps: GetStaticProps = async (context: any) => {
     }
 };
 
-export default StoreDetails;
+export default EventDetails;

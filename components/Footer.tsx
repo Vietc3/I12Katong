@@ -21,10 +21,10 @@ const Footer: React.FC<Props> = () => {
             paddingX={{ base: '.4rem', md: '1rem' }}
             paddingBottom={'2rem'}
             paddingTop="2.4rem"
-            color={colors.white}
+            color={colors.primary}
             bgColor={bg}
         >
-            <Box maxW={styles.mainMaxWidth} p={'1.5rem'} mx={'auto'}>
+            <Box maxW={styles.mainMaxWidth} p={'1.5rem'} mx={'auto'} color={colors.primary}>
                 <Flex
                     justify="space-between"
                     wrap="wrap"
@@ -49,7 +49,7 @@ const Footer: React.FC<Props> = () => {
                             </Box>
                         </Box>
                     </Flex>
-                    <Flex flex="3" direction={{ base: 'column', md: 'row' }}>
+                    <Flex flex="3" direction={{ base: 'column', md: 'row' }} color={colors.primary}>
                         {FOOTER_LINKS.map((link) => {
                             return (
                                 <Box
@@ -69,7 +69,7 @@ const Footer: React.FC<Props> = () => {
                                                         margin="2px"
                                                         fontSize={'.95rem'}
                                                         cursor="pointer"
-                                                        color={colors.white}
+                                                        
                                                         _hover={{ textDecoration: 'underline' }}
                                                     >
                                                         {title}

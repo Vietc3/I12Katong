@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Box, BoxProps, Text, useBreakpointValue } from '@chakra-ui/react';
 import useColorTheme from '../../hooks/useColorTheme';
 import styles from '../../constants/styles';
-
+import { useRouter } from 'next/router';
 import Image from '../Image';
 import Card from './Card';
 import _ from 'lodash';
@@ -16,6 +16,7 @@ interface Props extends BoxProps {
     skeleton?: boolean;
     imgBoxSize?: string | number;
     titleFontSize?: number | string;
+    idEvent?: string;
 }
 
 type FlexDirection = 'row' | 'column' | undefined;
@@ -26,17 +27,23 @@ const PostCard = ({
     imgBoxSize,
     skeleton = false,
     titleFontSize = '1.4rem',
+    idEvent,
     ...props
 }: Props) => {
     const [hover, setHover] = useState(false);
     const colors = useColorTheme();
     const flexDirection: FlexDirection = useBreakpointValue({ base: 'column', md: column ? 'column' : 'row' });
-
     const vaildForm = moment(post.validFrom).format("MMM Do");
     const validTo = moment(post.validTo).format("MMM Do");
+    const router = useRouter();
+    const onClickEvent = () => {
+        router.push(`/events/${idEvent}`);
+        window.scrollTo(0, 0);
+    };
 
     return (
         <Card
+            onClick={() => onClickEvent()}
             p={4}
             justifyContent="flex-start"
             cursor="pointer"
@@ -67,7 +74,7 @@ const PostCard = ({
                     textTransform="uppercase"
                     fontSize="sm"
                     letterSpacing="wide"
-                 
+
                 >
                     {post.title}
                 </Text>

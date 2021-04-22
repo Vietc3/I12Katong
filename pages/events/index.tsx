@@ -1,7 +1,7 @@
 import { GetStaticProps } from 'next';
-import Storyblok from "../lib/storyblok";
-import useStoryblok from "../lib/storyblok-hook";
-import StoryPage from "../components/storyPage/storyPage"
+import Storyblok from "../../lib/storyblok";
+import useStoryblok from "../../lib/storyblok-hook";
+import StoryPage from "../../components/storyPage/storyPage";
 
 type Props = {
     errors?: string;

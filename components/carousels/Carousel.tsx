@@ -4,13 +4,10 @@ import {
   Box,
   Flex,
   useColorModeValue,
-  Image,
   HStack,
-  Stack,
 } from "@chakra-ui/react";
-
+import useColorTheme from '../../hooks/useColorTheme';
 import CarouselItems from "./CarouselItems";
-import SbEditable from 'storyblok-react'
 
 type Props ={
     blok: any
@@ -55,6 +52,7 @@ const Carousel = ({blok}:Props) => {
     transition: "all .5s",
     ml: `-${currentSlide * 100}%`,
   };
+  const colors = useColorTheme();
 
   return (
     <Flex
@@ -67,11 +65,9 @@ const Carousel = ({blok}:Props) => {
     >
       <Flex  w="full" pos="relative" overflow="hidden" >
         <Flex h="500px" w="full" {...carouselStyle}>
-
           {slides.map((slide :any, index:number ) => (
               <CarouselItems key={index} blok={slide.content} />
           ))}
-        
         </Flex>
         <Text {...arrowStyles} left="0" onClick={prevSlide}>
           &#10094;
@@ -85,9 +81,9 @@ const Carousel = ({blok}:Props) => {
             <Box
               key={`dots-${slide}`}
               cursor="pointer"
-            //   boxSize={["7px", , "15px"]}
+              boxSize={["4px", , "10px"]}
               m="0 2px"
-              bg={currentSlide === slide ? "blackAlpha.800" : "blackAlpha.500"}
+              bg={currentSlide === slide ? colors.primary : "blackAlpha.400"}
               rounded="50%"
               display="inline-block"
               transition="background-color 0.6s ease"

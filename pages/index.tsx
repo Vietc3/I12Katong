@@ -62,13 +62,8 @@ export const getStaticProps: GetStaticProps = async (context:any) => {
         }
       
         let { data } = await Storyblok.get(`cdn/stories/${slug}`, params);
-
         let dataDeals = await Storyblok.get(`cdn/stories/${slug}`, paramsDeal);
-
-
-        let dataEvent = await Storyblok.get(`cdn/stories/${slug}`, paramsEvent);
-
-   
+        let dataEvent = await Storyblok.get(`cdn/stories/${slug}`, paramsEvent);   
         return {
           props: {
             storyProp: data ? data.story : false,

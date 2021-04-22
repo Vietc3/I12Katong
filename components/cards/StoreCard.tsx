@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Box, BoxProps, Text, useBreakpointValue, Tag, TagLabel, HStack } from '@chakra-ui/react';
 import useColorTheme from '../../hooks/useColorTheme';
 import styles from '../../constants/styles';
-
+import { useRouter } from 'next/router';
 import Image from '../Image';
 import Card from './Card';
 import _ from 'lodash';
@@ -11,6 +11,7 @@ interface Props extends BoxProps {
     post: any;
     column?: boolean;
     height?: number | string;
+    idStore?: string;
     skeleton?: boolean;
     imgBoxSize?: string | number;
     titleFontSize?: number | string;
@@ -20,6 +21,7 @@ type FlexDirection = 'row' | 'column' | undefined;
 
 const StoreCard = ({
     post,
+    idStore,
     column = false,
     imgBoxSize,
     skeleton = false,
@@ -31,10 +33,16 @@ const StoreCard = ({
     const colors = useColorTheme();
     const flexDirection: FlexDirection = useBreakpointValue({ base: 'column', md: column ? 'column' : 'row' });
     const tags = post.tags;
+    const router = useRouter();
+    
+    const onClickStore = () => {
+        router.push(`/stores/${idStore}`);
+        window.scrollTo(0, 0);
+    };
 
     return (
         <Card
-            p={{base:4, md:0}}
+            p={{base:4, md:1}}
             justifyContent="flex-start"
             cursor="pointer"
             onMouseEnter={() => setHover(true)}
@@ -46,6 +54,9 @@ const StoreCard = ({
             display="flex"
             {...props}
             flexDirection={flexDirection}
+            onClick={()=>onClickStore()}
+            borderRadius={0}
+            border={0}
         >
             <Box>
                 <Image
@@ -54,7 +65,7 @@ const StoreCard = ({
                     src={post.desktopImage.filename}
                     alt={'Photo of ' + post.title}
                     objectFit="cover"
-                    borderRadius={styles.borderRadius}
+                    // borderRadius={styles.borderRadius}
                 />
             </Box>
             <Box mt={{ base: 4, md: 2 }} ml={{ md: 6 }}>
@@ -68,7 +79,7 @@ const StoreCard = ({
                     {post.title}
                 </Text>
 
-                <Text mt={2} fontSize="xs"  color={colors.primary}>
+                <Text fontSize="xs"  color={colors.primary}>
                     Unit No: {post.unitNo}
                 </Text>
                 <HStack spacing="5px">

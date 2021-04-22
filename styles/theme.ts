@@ -5,7 +5,7 @@ export const colors = {
         dark: '#f0f0f0',
     },
     secondary: {
-        light: '#08002F',
+        light: '#fff',
         dark: '#fff',
     },
     light: {
