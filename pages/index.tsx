@@ -16,14 +16,19 @@ type Props = {
     storyProp?: any;
     storyDealProp?: any;
     storyEventProp?: any;
+    storyArtProp?: any;
 };
 
-const IndexPage = ({storyProp,storyDealProp, storyEventProp }: Props) => {
+const IndexPage = ({storyProp,storyDealProp, storyEventProp,storyArtProp }: Props) => {
     const story = useStoryblok(storyProp);
     const storyDeal = useStoryblok(storyDealProp);
     const storyEvent = useStoryblok(storyEventProp);
+    const storyAricle = useStoryblok(storyArtProp);
+
     story.content.body[1]=storyDeal.content.body[1];
     story.content.body[2]=storyEvent.content.body[2];
+    story.content.body[3]=storyAricle.content.body[3];
+
     return (
     <>
     <StoryPage content={story.content}/>
@@ -52,6 +57,12 @@ export const getStaticProps: GetStaticProps = async (context:any) => {
           "resolve_relations": "list-event-lastest.events",
           cv: Date.now()
         }
+
+        let paramsArt = {
+          version: "draft", // or 'published'
+          "resolve_relations": "list-article-lastest.articles",
+          cv: Date.now()
+        }
       
         if (context.preview) {
           params.version = "draft"
@@ -61,11 +72,13 @@ export const getStaticProps: GetStaticProps = async (context:any) => {
         let { data } = await Storyblok.get(`cdn/stories/${slug}`, params);
         let dataDeals = await Storyblok.get(`cdn/stories/${slug}`, paramsDeal);
         let dataEvent = await Storyblok.get(`cdn/stories/${slug}`, paramsEvent);   
+        let dataArt = await Storyblok.get(`cdn/stories/${slug}`, paramsArt);   
         return {
           props: {
             storyProp: data ? data.story : false,
             storyDealProp: dataDeals ? dataDeals.data.story : false,
             storyEventProp: dataEvent ? dataEvent.data.story : false,
+            storyArtProp: dataArt ? dataArt.data.story : false,
             preview: context.preview || false 
           },
           revalidate: 10,

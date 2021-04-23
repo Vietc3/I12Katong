@@ -6,6 +6,7 @@ import ListEventsCard from "../home/ListEventsCard";
 import ListStore from "../stores/ListStore";
 import ListEvent from "../events/ListEvent";
 import ListDeal from "../deals/ListDeal";
+import ListArtsCard from "../home/ListArtsCard";
 
 /*
  * Our bloks dictionnary.
@@ -16,6 +17,7 @@ const Components: any  = {
     "list-carousels" : Carousel,
     "list-deal-lastest": ListDealsCard,
     "list-event-lastest": ListEventsCard,
+    "list-article-lastest": ListArtsCard,
     "list-all-stores":ListStore,
     "list-all-events":ListEvent,
     "list-all-deals":ListDeal,

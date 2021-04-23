@@ -10,36 +10,35 @@ import moment from 'moment';
 
 
 interface Props extends BoxProps {
-    deal: any;
+    art: any;
     column?: boolean;
     height?: number | string;
     skeleton?: boolean;
     imgBoxSize?: string | number;
     titleFontSize?: number | string;
-    idDeal?: string;
+    idArt?: string;
 }
 
 type FlexDirection = 'row' | 'column' | undefined;
 
-const DealCard = ({
-    deal,
+const ArtsCard = ({
+    art,
     column = false,
     imgBoxSize,
     skeleton = false,
     titleFontSize = '1.4rem',
-    idDeal,
+    idArt,
     ...props
 }: Props) => {
     const [hover, setHover] = useState(false);
-    const colors = useColorTheme();
+    const colors = useColorTheme();    
     const flexDirection: FlexDirection = useBreakpointValue({ base: 'column', md: column ? 'column' : 'row' });
-    const vaildForm = moment(deal.validFrom).format("MMM Do");
-    const validTo = moment(deal.validTo).format("MMM Do");
+    const publicDate = moment(art.publicDate).format("MMM Do");
+    
     const router = useRouter();
     const onClickEvent = () => {
-        router.push(`/deals/${idDeal}`);
+        router.push(`/articles/${idArt}`);
     };
-
     return (
         <Card
             onClick={() => onClickEvent()}
@@ -48,7 +47,7 @@ const DealCard = ({
             cursor="pointer"
             onMouseEnter={() => setHover(true)}
             onMouseLeave={() => setHover(false)}
-            style={{ transform: `scale(${hover ? 1.1 : 1})` }}
+            style={{ transform: `scale(${hover ? 1.02 : 1})` }}
             transition="ease-in 0.2s"
             overflow="hidden"
             marginY=".5rem"
@@ -59,11 +58,11 @@ const DealCard = ({
         >
             <Box>
                 <Image
-                     width={{ base: '60%', lg: column ? '100%' : 60 }}
-                     height={{ base: 80, lg: column ? '15rem' : 40 }}
-                    src={deal.desktopImage.filename}
-                    alt={'Photo of ' + deal.title}
-                    // objectFit="cover"
+                    width={{ base: '100%', lg: column ? '100%' : 60 }}
+                    height={{ base: 80, lg: column ? '15rem' : 40 }}
+                    src={art.desktopImage.filename}
+                    alt={'Photo of ' + art.title}
+                    objectFit="cover"
                     borderRadius={styles.borderRadius}
                 />
             </Box>
@@ -73,12 +72,12 @@ const DealCard = ({
                     textTransform="uppercase"
                     fontSize="sm"
                     letterSpacing="wide"
-
                 >
-                    {deal.title}
+               {art.title.substr(0,30)}
+                    {art.title.length > 30 ? '...' : ''}
                 </Text>
                 <Text mt={2} fontSize="xs" >
-                    {`${vaildForm}-${validTo}`}
+                    {`${publicDate}-${art.author}`}
                 </Text>
                 {/* <Text
                     mt={1}
@@ -96,4 +95,4 @@ const DealCard = ({
     );
 };
 
-export default DealCard;
+export default ArtsCard;
