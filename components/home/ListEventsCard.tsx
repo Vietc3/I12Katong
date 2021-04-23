@@ -35,7 +35,7 @@ const ListEventsCard = ({
                             column
                             post={event.content}
                             idEvent={event.id}
-                            key={event.content}
+                            key={event.content+event.id}
                             titleFontSize={'1em'}
                         />
                     </Box>))}
