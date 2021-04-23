@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box, BoxProps, Text, useBreakpointValue } from '@chakra-ui/react';
+import { Box, BoxProps, Text, useBreakpointValue, Button } from '@chakra-ui/react';
 import useColorTheme from '../../hooks/useColorTheme';
 import styles from '../../constants/styles';
 import { useRouter } from 'next/router';
@@ -31,18 +31,18 @@ const ArtsCard = ({
     ...props
 }: Props) => {
     const [hover, setHover] = useState(false);
-    const colors = useColorTheme();    
+    const colors = useColorTheme();
     const flexDirection: FlexDirection = useBreakpointValue({ base: 'column', md: column ? 'column' : 'row' });
     const publicDate = moment(art.publicDate).format("MMM Do");
-    
+
     const router = useRouter();
-    const onClickEvent = () => {
+    const onClickArt = () => {
         router.push(`/articles/${idArt}`);
         window.scrollTo(0, 0);
     };
     return (
         <Card
-            onClick={() => onClickEvent()}
+            onClick={() => onClickArt()}
             p={4}
             justifyContent="flex-start"
             cursor="pointer"
@@ -68,29 +68,23 @@ const ArtsCard = ({
                 />
             </Box>
             <Box mt={{ base: 4, md: 2 }} ml={{ md: 6 }} color={colors.primary}>
+               
                 <Text
                     fontWeight="bold"
                     textTransform="uppercase"
                     fontSize="sm"
                     letterSpacing="wide"
                 >
-               {art.title.substr(0,30)}
+                    {art.title.substr(0, 30)}
                     {art.title.length > 30 ? '...' : ''}
                 </Text>
-                <Text mt={2} fontSize="xs" >
+                <Text mt={2} fontSize="xs"  fontWeight="bold" >
                     {`${publicDate}-${art.author}`}
                 </Text>
-                {/* <Text
-                    mt={1}
-                    display="block"
-                    fontSize="lg"
-                    lineHeight="normal"
-                    fontWeight="semibold"
-                    href="#"
-                >
-                    {_.upperFirst(post.sumary)}
-                </Text> */}
-
+              
+                <Button  onClick={() => onClickArt()} mt={2} backgroundColor={colors.primary} color="white">
+                    READ MORE
+                </Button>
             </Box>
         </Card>
     );
