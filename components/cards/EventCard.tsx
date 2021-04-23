@@ -48,7 +48,7 @@ const EventCard = ({
             cursor="pointer"
             onMouseEnter={() => setHover(true)}
             onMouseLeave={() => setHover(false)}
-            style={{ transform: `scale(${hover ? 1.01 : 1})` }}
+            style={{ transform: `scale(${hover ? 1.1 : 1})` }}
             transition="ease-in 0.2s"
             overflow="hidden"
             marginY=".5rem"
@@ -56,8 +56,6 @@ const EventCard = ({
             {...props}
             flexDirection={flexDirection}
             color={colors.primary}
-            borderRadius={0}
-            border={0}
         >
             <Box>
                 <Image
@@ -75,7 +73,6 @@ const EventCard = ({
                     textTransform="uppercase"
                     fontSize="sm"
                     letterSpacing="wide"
-
                 >
                     {post.title}
                 </Text>

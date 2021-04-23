@@ -1,48 +1,49 @@
 import React, { useState } from 'react';
-import { Box, BoxProps, Text, useBreakpointValue, Tag, TagLabel, HStack} from '@chakra-ui/react';
+import { Box, BoxProps, Text, useBreakpointValue } from '@chakra-ui/react';
 import useColorTheme from '../../hooks/useColorTheme';
 import styles from '../../constants/styles';
 import { useRouter } from 'next/router';
 import Image from '../Image';
 import Card from './Card';
 import _ from 'lodash';
+import moment from 'moment';
 
 
 interface Props extends BoxProps {
-    post: any;
+    deal: any;
     column?: boolean;
     height?: number | string;
-    idStore?: string;
     skeleton?: boolean;
     imgBoxSize?: string | number;
     titleFontSize?: number | string;
+    idDeal?: string;
 }
 
 type FlexDirection = 'row' | 'column' | undefined;
 
-const StoreCard = ({
-    post,
-    idStore,
+const DealCard = ({
+    deal,
     column = false,
     imgBoxSize,
     skeleton = false,
     titleFontSize = '1.4rem',
+    idDeal,
     ...props
 }: Props) => {
-
     const [hover, setHover] = useState(false);
     const colors = useColorTheme();
     const flexDirection: FlexDirection = useBreakpointValue({ base: 'column', md: column ? 'column' : 'row' });
-    const tags = post.tags;
+    const vaildForm = moment(deal.validFrom).format("MMM Do");
+    const validTo = moment(deal.validTo).format("MMM Do");
     const router = useRouter();
-    const onClickStore = () => {
-        router.push(`/stores/${idStore}`);
-        window.scrollTo(0, 0);
+    const onClickEvent = () => {
+        router.push(`/deals/${idDeal}`);
     };
 
     return (
         <Card
-            p={{ base: 4, md: 1 }}
+            onClick={() => onClickEvent()}
+            p={4}
             justifyContent="flex-start"
             cursor="pointer"
             onMouseEnter={() => setHover(true)}
@@ -54,47 +55,45 @@ const StoreCard = ({
             display="flex"
             {...props}
             flexDirection={flexDirection}
-            onClick={() => onClickStore()}
-           
+            color={colors.primary}
         >
-            <Box  >
+            <Box>
                 <Image
                     width={{ base: '100%', lg: column ? '100%' : 60 }}
                     height={{ base: 80, lg: column ? '15rem' : 40 }}
-                    src={post.desktopImage.filename ? post.desktopImage.filename : null}
-                    alt={'Photo of ' + post.title}
+                    src={deal.desktopImage.filename}
+                    alt={'Photo of ' + deal.title}
                     objectFit="cover"
                     borderRadius={styles.borderRadius}
                 />
             </Box>
-            <Box mt={{ base: 4, md: 2 }} ml={{ md: 6 }}>
+            <Box mt={{ base: 4, md: 2 }} ml={{ md: 6 }} color={colors.primary}>
                 <Text
                     fontWeight="bold"
                     textTransform="uppercase"
                     fontSize="sm"
                     letterSpacing="wide"
-                    color={colors.primary}
-                >
-                    {post.title}
-                </Text>
 
-                <Text fontSize="xs" color={colors.primary}>
-                    Unit No: {post.unitNo}
+                >
+                    {deal.title}
                 </Text>
-                <HStack spacing="5px">
-                    {tags ? tags.map((tag: any) => (
-                        <Tag
-                            key={tag}
-                            variant="solid"
-                            colorScheme="yellow.50"
-                        >
-                            <TagLabel >{tag}</TagLabel>
-                        </Tag>
-                    )) : null}
-                </HStack>
+                <Text mt={2} fontSize="xs" >
+                    {`${vaildForm}-${validTo}`}
+                </Text>
+                {/* <Text
+                    mt={1}
+                    display="block"
+                    fontSize="lg"
+                    lineHeight="normal"
+                    fontWeight="semibold"
+                    href="#"
+                >
+                    {_.upperFirst(post.sumary)}
+                </Text> */}
+
             </Box>
         </Card>
     );
 };
 
-export default StoreCard;
+export default DealCard;

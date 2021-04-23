@@ -64,7 +64,7 @@ const Carousel = ({blok}:Props) => {
      
     >
       <Flex  w="full" pos="relative" overflow="hidden" >
-        <Flex h="500px" w="full" {...carouselStyle}>
+        <Flex h="650px" w="full" {...carouselStyle}>
           {slides.map((slide :any, index:number ) => (
               <CarouselItems key={index} blok={slide.content} />
           ))}

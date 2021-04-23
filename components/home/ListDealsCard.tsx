@@ -2,17 +2,15 @@ import React, { useEffect, useState } from 'react';
 import { Box, useMediaQuery,Heading,Divider } from '@chakra-ui/react';
 import useColorTheme from '../../hooks/useColorTheme';
 import PhotoCard from '../cards/PhotoCard';
-import { Post } from '../../interfaces';
+
 type Props = {
     margin?: number;
     containerHeight?: number;
     blok: any;
-    onClickPost: (post: Post) => void;
 }
 
 const ListDealsCard = ({
     blok,
-    onClickPost,
     margin = 6,
     containerHeight = 550,
 }: Props) => {
@@ -38,8 +36,9 @@ const ListDealsCard = ({
                 fontSize="4xl"
                 bottom="30px"
                 textAlign="center"
-                color={colors.primary}>
-                Deals
+                color={colors.primary}
+                fontFamily="Mulish, sans-serif;">
+                DEALS
             </Heading>
             <Box  color={colors.primary} flex={1} d="flex" maxHeight={`${maxContainerHeight}px`} flexDirection={{ base: 'column', md: 'row' }}>
                 <PhotoCard
@@ -48,7 +47,7 @@ const ListDealsCard = ({
                     maxHeight={`${maxFullPhotoHeight}px`}
                     margin={`${margin}px`}
                     alt={`Picture of ${deals[0].content.title}`}
-                    onClick={() => onClickPost(deals[0].content)}
+                    idDeal={deals[0].id}
                 />
                 <Box margin="0px" d="flex" flex={2} flexDirection="column">
                     <PhotoCard
@@ -57,7 +56,7 @@ const ListDealsCard = ({
                         alt={`Picture of ${deals[1].content.title}`}
                         maxHeight={`${maxHalfPhotoHeight}px`}
                         margin={`${margin}px`}
-                        onClick={() => onClickPost(deals[1].content)}
+                        idDeal={deals[1].id}
                     />
                     <Box margin="0px" d="flex" flex={1} height={'100%'} flexDirection={{ base: 'column', md: 'row' }}>
                         <PhotoCard
@@ -66,7 +65,7 @@ const ListDealsCard = ({
                             imgSrc={deals[2].content.desktopImage.filename}
                             alt={`Picture of ${deals[2].content.title}`}
                             margin={`${margin}px`}
-                            onClick={() => onClickPost(deals[2].content)}
+                            idDeal={deals[2].id}
                         />
                         <PhotoCard
                             maxHeight={`${maxHalfPhotoHeight}px`}
@@ -74,7 +73,7 @@ const ListDealsCard = ({
                             imgSrc={deals[3].content.desktopImage.filename}
                             alt={`Picture of ${deals[3].content.title}`}
                             margin={`${margin}px`}
-                            onClick={() => onClickPost(deals[3].content)}
+                            idDeal={deals[3].id}
                         />
                     </Box>
                 </Box>

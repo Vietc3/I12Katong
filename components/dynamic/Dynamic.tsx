@@ -5,6 +5,7 @@ import ListDealsCard from "../home/ListDealsCard";
 import ListEventsCard from "../home/ListEventsCard";
 import ListStore from "../stores/ListStore";
 import ListEvent from "../events/ListEvent";
+import ListDeal from "../deals/ListDeal";
 
 /*
  * Our bloks dictionnary.
@@ -17,6 +18,7 @@ const Components: any  = {
     "list-event-lastest": ListEventsCard,
     "list-all-stores":ListStore,
     "list-all-events":ListEvent,
+    "list-all-deals":ListDeal,
 };
 
 const Dynamic = ({ blok}: any) => {

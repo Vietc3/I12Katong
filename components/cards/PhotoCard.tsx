@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Box, BoxProps, Heading } from '@chakra-ui/react';
 import styles from '../../constants/styles';
 import Image from '../Image';
+import { useRouter } from 'next/router';
 
 interface Props extends BoxProps {
     boxSize?: number | string;
@@ -9,32 +10,40 @@ interface Props extends BoxProps {
     alt: string;
     title: string;
     imgBorderRadius?: number;
-    onClick: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
+    idDeal?:string
+   
 }
 
 const PhotoCard: React.FC<Props> = ({
     alt,
     title,
     imgSrc,
-    onClick,
+    idDeal,
     boxSize = '100%',
     imgBorderRadius = styles.borderRadius,
     ...rest
 }) => {
     const [hover, setHover] = useState(false);
+
+    const router = useRouter();
+    const onClickStore = () => {
+        router.push(`/deals/${idDeal}`);
+        window.scrollTo(0, 0);
+    };
+
     return (
         <Box
             cursor="pointer"
-            onClick={onClick}
             position="relative"
             flexDirection="column"
             flex={1}
-            style={{ transform: `scale(${hover ? 1.01 : 1})` }}
+            style={{ transform: `scale(${hover ? 1.02 : 1})` }}
             transition="ease-in 0.2s"
             display="flex"
             onMouseEnter={() => setHover(true)}
             onMouseLeave={() => setHover(false)}
             {...rest}
+            onClick={()=>onClickStore()}
         >
             <Image
                 objectFit="cover"

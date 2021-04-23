@@ -4,6 +4,7 @@ import React, { useEffect, useState,useMemo } from 'react';
 import StoreCard from '../cards/StoreCard';
 import useColorTheme from '../../hooks/useColorTheme';
 import sortBy from '../../common/functions/sortBy';
+
 type Props = {
     blok: any;
     margin?: number;

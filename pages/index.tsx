@@ -24,9 +24,6 @@ const IndexPage = ({storyProp,storyDealProp, storyEventProp }: Props) => {
     const storyEvent = useStoryblok(storyEventProp);
     story.content.body[1]=storyDeal.content.body[1];
     story.content.body[2]=storyEvent.content.body[2];
-
-    
-    
     return (
     <>
     <StoryPage content={story.content}/>
