@@ -38,6 +38,7 @@ const DealCard = ({
     const router = useRouter();
     const onClickEvent = () => {
         router.push(`/deals/${idDeal}`);
+        window.scrollTo(0, 0);
     };
 
     return (

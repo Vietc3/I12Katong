@@ -38,6 +38,7 @@ const ArtsCard = ({
     const router = useRouter();
     const onClickEvent = () => {
         router.push(`/articles/${idArt}`);
+        window.scrollTo(0, 0);
     };
     return (
         <Card
