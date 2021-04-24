@@ -3,22 +3,28 @@ import {FRIST_CHARACTERS} from '../../constants/index';
 import useColorTheme from '../../hooks/useColorTheme';
 
 
-interface PropsFistCharacterItem extends ButtonProps {}
+interface PropsFistCharacterItem extends ButtonProps {
+    handleFristChar?:any
+}
 
 
-const FistCharacterItem = ({ children, ...props }:PropsFistCharacterItem) => {
+const FistCharacterItem = ({ children, handleFristChar }:PropsFistCharacterItem) => {
     const colors = useColorTheme();
     return (
         <>
-                <Button backgroundColor={colors.primary} color="white">
+                <Button onClick={()=>handleFristChar()} backgroundColor={colors.primary} color="white">
                      {children}
                  </Button>
         </>
     )
 }
 
+type Props = {
+    handleFristChar?: any;
+}
 
-const FilterFirstCharacter = () => {
+
+const FilterFirstCharacter = ({handleFristChar}:Props) => {
 
     return (
         <>
@@ -26,7 +32,7 @@ const FilterFirstCharacter = () => {
         {
             FRIST_CHARACTERS.map((character:any)=>{
                 return (
-                <FistCharacterItem key={character}>{character.title}</FistCharacterItem>
+                <FistCharacterItem handleFristChar={()=>handleFristChar(character.value)}  key={character}>{character.title}</FistCharacterItem>
                 )
             })
         }

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box, BoxProps, Text, useBreakpointValue, Button } from '@chakra-ui/react';
+import { Box, BoxProps, Text, useBreakpointValue } from '@chakra-ui/react';
 import useColorTheme from '../../hooks/useColorTheme';
 import styles from '../../constants/styles';
 import { useRouter } from 'next/router';

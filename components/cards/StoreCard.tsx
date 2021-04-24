@@ -81,6 +81,9 @@ const StoreCard = ({
                 <Text fontSize="xs" color={colors.primary}>
                     Unit No: {post.unitNo}
                 </Text>
+                <Text fontSize="xs" color={colors.primary}>
+                    {post.categories}
+                </Text>
                 <HStack spacing="5px">
                     {tags ? tags.map((tag: any) => (
                         <Tag
