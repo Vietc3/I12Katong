@@ -30,12 +30,11 @@ const ListEventsCard = ({
             </Heading>
             <Box d="flex" flexDirection={{ base: 'column', lg: 'row' }}>
                 {events.map((event: any) => (
-                    <Box p = "3" >
+                    <Box  key={event.content+event.id} p = "3" >
                         <EventCard
                             column
                             post={event.content}
                             idEvent={event.id}
-                            key={event.content+event.id}
                             titleFontSize={'1em'}
                         />
                     </Box>))}

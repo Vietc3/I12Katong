@@ -11,6 +11,7 @@ type Props = {
 
 const Articles = ({storyProp}:Props) => {
     const story = useStoryblok(storyProp);
+    
     return (
         <>
           <StoryPage content={story.content}/>

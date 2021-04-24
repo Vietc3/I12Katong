@@ -82,9 +82,9 @@ const ArtsCard = ({
                     {`${publicDate}-${art.author}`}
                 </Text>
               
-                <Button  onClick={() => onClickArt()} mt={2} backgroundColor={colors.primary} color="white">
+                {/* <Button  onClick={() => onClickArt()} mt={2} backgroundColor={colors.primary} color="white">
                     READ MORE
-                </Button>
+                </Button> */}
             </Box>
         </Card>
     );

@@ -15,11 +15,10 @@ type Props = {
 
 const DetailArticle = ({ blok }: Props) => {
     const articles = blok.articles;
-
-    const router = useRouter();
     const colors = useColorTheme();
     return (
-        <><Container maxW={'6xl'} py={12} pt={5}>
+        <>
+        <Container maxW={'6xl'} py={12} pt={5}>
             <Box as="section">
                 <Image
                     borderRadius={styles.borderRadius}
@@ -70,7 +69,6 @@ const DetailArticle = ({ blok }: Props) => {
                 </Box>
             </Box>
 
-          
         </Container>
         </>
     );

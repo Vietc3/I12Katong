@@ -50,14 +50,13 @@ export const getStaticProps: GetStaticProps = async (context: any) => {
             cv: Date.now(),
             find_by: "id"
         }
-
         if (context.preview) {
             params.version = "draft"
             params.cv = Date.now()
         }
 
         let { data } = await Storyblok.get(`cdn/stories/${slug}`, params);
-
+       
         return {
             props: {
                 storyProp: data ? data.story : false,
