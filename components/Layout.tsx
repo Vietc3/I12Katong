@@ -9,7 +9,7 @@ type Props = {
     title?: string;
 } & BoxProps;
 
-const Layout: React.FC<Props> = ({ children, title = 'Modern News' }) =>{
+const Layout: React.FC<Props> = ({ children, title = 'Modern News', ...props }) =>{
     
     const router = useRouter()
     return(
@@ -26,9 +26,9 @@ const Layout: React.FC<Props> = ({ children, title = 'Modern News' }) =>{
                 <header>
                     <Navbar />
                 </header>
-                {/* <Box as="main" minH={'80vh'} maxW={styles.mainMaxWidth} marginX="auto" {...props}> */}
+                <Box as="main" marginX="auto" {...props}>
                 <Transition location={router.pathname}>{children}</Transition>
-                {/* </Box> */}
+                </Box>
                 <Footer />
             </Box>
     </Box>
