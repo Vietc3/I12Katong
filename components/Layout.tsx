@@ -9,7 +9,7 @@ type Props = {
     title?: string;
 } & BoxProps;
 
-const Layout: React.FC<Props> = ({ children, title = 'Modern News', ...props }) =>{
+const Layout: React.FC<Props> = ({ children, title = 'Modern News' }) =>{
     
     const router = useRouter()
     return(
