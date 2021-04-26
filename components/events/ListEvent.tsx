@@ -1,4 +1,4 @@
-import { Select, Spacer, Flex, Box, Heading, SimpleGrid, Center } from "@chakra-ui/react";
+import { Select, Spacer, Box, Heading, SimpleGrid, Center } from "@chakra-ui/react";
 import React,{useState,useEffect} from 'react';
 
 import EventCard from '../cards/EventCard';

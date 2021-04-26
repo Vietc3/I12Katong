@@ -10,16 +10,9 @@ import {
     useColorModeValue,
   } from '@chakra-ui/react';
 
-  import { ReactElement } from 'react';
   import useColorTheme from '../../hooks/useColorTheme';
   import moment from 'moment';
-  
-  interface FeatureProps {
-    text: string;
-    iconBg: string;
-    icon?: ReactElement;
-  }
-  
+ 
   interface EventProps {
   event:any
   }

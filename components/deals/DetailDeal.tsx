@@ -10,36 +10,14 @@ import {
     useColorModeValue,
   } from '@chakra-ui/react';
 
-  import { ReactElement } from 'react';
   import useColorTheme from '../../hooks/useColorTheme';
   import moment from 'moment';
   
-  interface FeatureProps {
-    text: string;
-    iconBg: string;
-    icon?: ReactElement;
-  }
   
   interface DealsProps {
   deal:any
   }
   
-  const Feature = ({ text, icon, iconBg }: FeatureProps) => {
-    return (
-      <Stack direction={'row'} align={'center'}>
-        <Flex
-          w={8}
-          h={8}
-          align={'center'}
-          justify={'center'}
-          rounded={'full'}
-          bg={iconBg}>
-          {icon}
-        </Flex>
-        <Text fontWeight={600}>{text}</Text>
-      </Stack>
-    );
-  };
   
  const DetailDeal = ({deal}:DealsProps) => {
     const colors = useColorTheme();    

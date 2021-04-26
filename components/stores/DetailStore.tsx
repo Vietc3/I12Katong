@@ -21,7 +21,7 @@ import useColorTheme from '../../hooks/useColorTheme';
 
 interface FeatureProps {
   text: string;
-  iconBg: string;
+  iconBg?: string;
   icon?: ReactElement;
 }
 
