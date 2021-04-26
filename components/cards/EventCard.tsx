@@ -61,10 +61,20 @@ const EventCard = ({
                 <Image
                     width={{ base: '100%', lg: column ? '100%' : 60 }}
                     height={{ base: 80, lg: column ? '15rem' : 40 }}
+                    src={post.mobileImage.filename}
+                    alt={'Photo of ' + post.title}
+                    objectFit="cover"
+                    borderRadius={styles.borderRadius}
+                    display={{ base: 'flex', md: 'none' }}
+                />
+                <Image
+                    width={{ base: '100%', lg: column ? '100%' : 60 }}
+                    height={{ base: 80, lg: column ? '15rem' : 40 }}
                     src={post.desktopImage.filename}
                     alt={'Photo of ' + post.title}
                     objectFit="cover"
                     borderRadius={styles.borderRadius}
+                    display={{ base: 'none', md: 'flex' }}
                 />
             </Box>
             <Box mt={{ base: 4, md: 2 }} ml={{ md: 6 }} color={colors.primary}>

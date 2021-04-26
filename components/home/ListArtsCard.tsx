@@ -29,7 +29,7 @@ const ListArtsCard = ({
             </Heading>
             <Box d="flex" flexDirection={{ base: 'column', lg: 'row' }}>
                 {articles.map((article: any) => (
-                    <Box w="25%" p = "3" key={article.content+article.id}>
+                    <Box w={{base:"100%", lg:"25%"}} p = "3" key={article.content+article.id}>
                         <ArtsCard
                             column
                             art={article.content}
