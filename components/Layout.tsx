@@ -7,6 +7,8 @@ import Transition from "./Transitions"
 import { useRouter } from "next/router"
 type Props = {
     title?: string;
+    children?:any,
+    props?:any
 } & BoxProps;
 
 const Layout: React.FC<Props> = ({ children, title = 'Modern News', ...props }) =>{
