@@ -1,4 +1,4 @@
-import { Box, Heading, Container, Text, Stack } from '@chakra-ui/react';
+import { Box, Heading, Container, Text } from '@chakra-ui/react';
 import Image from '../../components/Image';
 import styles from '../../constants/styles';
 import useColorTheme from '../../hooks/useColorTheme';
@@ -6,7 +6,6 @@ import AuthorCard from '../../components/cards/AuthorCard';
 import SocialCard from '../../components/cards/SocialCard';
 import ArtCard from '../../components/cards/ArtCard';
 import NewsletterForm from '../../components/NewsletterForm';
-import { useRouter } from 'next/router';
 import _ from 'lodash';
 
 type Props = {

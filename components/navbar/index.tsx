@@ -6,7 +6,6 @@ import MenuItem from './MenuItem';
 import Link from 'next/link';
 import styles from '../../constants/styles';
 import DrawerMenu from './DrawerMenu';
-import ThemeToggler from '../ThemeToggler';
 import useColorTheme from '../../hooks/useColorTheme';
 import { NAVBAR_LINKS } from '../../constants';
 
