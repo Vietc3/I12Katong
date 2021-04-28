@@ -30,8 +30,9 @@ const ListDealsCard = ({
 
     return (<>
         <Divider width="100%" mt="1.6rem" mb=".3rem" mx="auto" />
-        <Box as="section" mt="10px">
-            <Heading   
+        <Box  as="section" mt="10px">
+            <Heading  
+            data-aos="fade-up-right" 
                 transition="ease-in 0.15s"
                 fontSize="4xl"
                 bottom="30px"
@@ -40,7 +41,7 @@ const ListDealsCard = ({
                 fontFamily="Mulish, sans-serif;">
                 DEALS
             </Heading>
-            <Box  color={colors.primary} flex={1} d="flex" maxHeight={`${maxContainerHeight}px`} flexDirection={{ base: 'column', md: 'row' }}>
+            <Box data-aos="zoom-out-up"  color={colors.primary} flex={1} d="flex" maxHeight={`${maxContainerHeight}px`} flexDirection={{ base: 'column', md: 'row' }}>
                 <PhotoCard
                     title={deals[0].content.title}
                     imgSrc={deals[0].content.desktopImage.filename}

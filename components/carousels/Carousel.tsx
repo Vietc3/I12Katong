@@ -44,7 +44,7 @@ const Carousel = ({ blok }: Props) => {
       p={0}
       alignItems="center"
       justifyContent="center"
-
+      data-aos="zoom-in"
     >
       <Flex w="full" pos="relative" overflow="hidden" >
         <Flex h="650px" w="full" {...carouselStyle}>
