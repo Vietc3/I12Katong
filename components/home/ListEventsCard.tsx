@@ -14,12 +14,13 @@ const ListEventsCard = ({
 }: Props) => {
     const events = blok.events;
     const colors = useColorTheme();
-
+  
     return (
     <>
         <Divider width="100%" mt="1.6rem" mb=".3rem" mx="auto" />
-        <Box as="section" mt="10px">
+        <Box  as="section" mt="10px">
             <Heading
+             data-aos="fade-down-left"
                 transition="ease-in 0.15s"
                 fontSize="4xl"
                 bottom="30px"
@@ -28,7 +29,7 @@ const ListEventsCard = ({
                 fontFamily="Mulish, sans-serif;">
                 EVENTS
             </Heading>
-            <Box d="flex" flexDirection={{ base: 'column', lg: 'row' }}>
+            <Box  data-aos="fade-left" d="flex" flexDirection={{ base: 'column', lg: 'row' }}>
                 {events.map((event: any) => (
                     <Box  key={'listEvent'+event.content+event.id} p = "3" >
                         <EventCard

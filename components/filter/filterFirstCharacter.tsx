@@ -28,7 +28,7 @@ const FilterFirstCharacter = ({handleFristChar}:Props) => {
 
     return (
         <>
-        <Stack w="100%" h="100%" direction="row" spacing={3} align="center">
+        <Stack w="100%" h="100%" direction="row" spacing={2} align="center">
         {
             FRIST_CHARACTERS.map((character:any)=>{
                 return (

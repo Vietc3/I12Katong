@@ -10,12 +10,10 @@ import useColorTheme from '../../hooks/useColorTheme';
 import { NAVBAR_LINKS } from '../../constants';
 
 interface Props {}
-
 const Navbar: React.FC<Props> = () => {
     const [isOpen, setIsOpen] = React.useState(false);
     const toggle = () => setIsOpen(!isOpen);
     const colors = useColorTheme();
-
     return (
         <Box margin={0} borderBottom="1px" borderColor={colors.border}>
             <Flex

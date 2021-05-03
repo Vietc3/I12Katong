@@ -21,7 +21,7 @@ export const colors = {
         dark: '#333',
     },
 };
-
+  
 export default {
     colors: {
         primary: colors.primary,
@@ -50,5 +50,5 @@ export default {
     fonts: {
         heading: 'Playfair Display, sans-serif',
         body: 'Mulish, sans-serif',
-    },
+    },    
 };

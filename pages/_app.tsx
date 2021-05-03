@@ -2,13 +2,17 @@
 import type { AppProps /*, AppContext */ } from 'next/app';
 import '../styles/index.css';
 import { Fonts } from '../fonts';
+
 import { Chakra } from '../Chakra';
 import Layout from '../components/Layout';
 
 import Router from 'next/router';
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import { BounceLoader } from 'react-spinners';
 import { css } from '@emotion/core';
+
+import AOS from 'aos';
+import 'aos/dist/aos.css'
 
 import {
     Modal, ModalOverlay,
@@ -28,6 +32,10 @@ function Application({ Component, pageProps }: AppProps) {
     Router.events.on('routeChangeStart', () => setLoading(true));
     Router.events.on('routeChangeComplete', () => setLoading(false));
     Router.events.on('routeChangeError', () => setLoading(false));
+
+    useEffect(() => {
+        AOS.init({duration:2000}) 
+    }, []);
 
     // const { isOpen, onOpen, onClose } = useDisclosure()
     return (

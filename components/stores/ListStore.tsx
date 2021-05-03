@@ -79,7 +79,8 @@ const ListStore = ({
                 pt={10}
                 d="flex" flexDirection={{ base: 'column', lg: 'row' }}
             >
-                 <Box pr="7%" d="flex" w={{ base: '100%', lg: '22%' }}>
+                  <Box pr="2%" d="flex" w={{ base: '100%', lg: '20%' }}>
+                     
                 <Center  h="100%" w="30%" display={{ base: 'none', lg: 'flex' }} textAlign="center">Categories</Center>
                 <Select onChange={onChangeCategories} w={{ base: '100%', lg: '70%' }} color={colors.primary} size="lg" >
                     <option value="all">All</option>
@@ -96,7 +97,7 @@ const ListStore = ({
                 pt={10}
                 d="flex" flexDirection={{ base: 'column', lg: 'row' }}
             >
-                 <Box pr="7%" d="flex" w={{ base: '100%', lg: '22%' }}>
+                 <Box pr="2%" d="flex" w={{ base: '100%', lg: '20%' }}>
                 
                 <Center  h="100%" w="30%" display={{ base: 'none', lg: 'flex' }} textAlign="center">Sort By</Center>
 
@@ -106,8 +107,8 @@ const ListStore = ({
                 </Select>
 
             </Box>
-            <Spacer />
-                <Box  d="flex" w={{ base: '100%', lg: '76%' }} pt={6} h="24px">
+            {/* <Spacer /> */}
+                <Box  d="flex" w={{ base: '90%', lg: '65%' }} pt={6} h="24px">
                 <FilterFirstCharacter handleFristChar={(value:any)=>setFristChar(value)}/></Box>
             </Box>
             <Divider width="100%" mt="1.6rem" mb=".3rem" mx="auto" />
