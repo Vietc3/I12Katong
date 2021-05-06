@@ -1,5 +1,5 @@
 import React from 'react';
-import { GetStaticProps } from 'next';
+import { GetStaticProps,GetServerSideProps } from 'next';
 import { Post } from '../interfaces';
 
 // The Storyblok Client
@@ -41,7 +41,7 @@ const IndexPage = ({storyProp,storyDealProp, storyEventProp,storyArtProp,postLas
     );
 };
 
-export const getStaticProps: GetStaticProps = async (context:any) => {
+export const getServerSideProps: GetServerSideProps = async (context:any) => {
     try {
 
         let slug = "home"
