@@ -78,7 +78,7 @@ export const getStaticProps: GetStaticProps = async (context:any) => {
         let dataDeals = await Storyblok.get(`cdn/stories/${slug}`, paramsDeal);
         let dataEvent = await Storyblok.get(`cdn/stories/${slug}`, paramsEvent);   
         let dataArt = await Storyblok.get(`cdn/stories/${slug}`, paramsArt); 
-        let responseFbPost = await fetch('https://graph.facebook.com/v10.0/100230702234464/feed/?fields=full_picture,message,permalink_url&access_token=EAADBQNZBhgo4BAPqiC2p1hNHfCTheO5JVXbZASgHYcPbHDEkhDveh0hxrTtN2rlIlJMWFZCh7ZArXZCm1L0lcOKyS7b56A7vpj3rtxE5Wkbh3kKDukmjKx48KNNAphhDU15PWeBTeVcHNkpQSW4FjrglxDy6APMA0p6Q7GepE966RaTHJFGAsgvxayFjcIx5S8vtn2AZCZCsg1EOJPcVDVFu64jHjuETotiYkNc6N43sQZDZD');
+        let responseFbPost = await fetch('https://graph.facebook.com/v10.0/100230702234464/feed/?fields=full_picture,message,permalink_url&access_token=EAADBQNZBhgo4BAHQFvu9w0nyOznxlSGPIkzEbNZBQ6ZBibGBjVty6pWmoC9fUQ595lK0eUMZCx8ZCsmmOSj0qyVLEYguyUYjjLL2PZAtEhibNultDfXluC7CvGFS2Yw3cLb7nFlZAi55ofrM7xcpWjpENkw5gxd9sotEZBD2pZAZAs8AZDZD');
         let fbLastestPost= await responseFbPost.json()
         return {
           props: {
@@ -89,7 +89,7 @@ export const getStaticProps: GetStaticProps = async (context:any) => {
             postLastestFB: fbLastestPost ? fbLastestPost : false,
             preview: context.preview || false 
           },
-          revalidate: 10,
+          revalidate: 1,
         }
 
     } catch (err) {
