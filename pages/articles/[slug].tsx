@@ -10,6 +10,7 @@ import SocialCard from '../../components/cards/SocialCard';
 import ArtCard from '../../components/cards/ArtCard';
 import NewsletterForm from '../../components/NewsletterForm';
 import React, { useMemo } from 'react';
+import DisqusComments from '../../components/disqus/disqusComment'
 import _ from 'lodash';
 
 type Props = {
@@ -55,6 +56,7 @@ const EventDetails = ({ storyProp, storyAllProp }: Props) => {
                 <NewsletterForm onSubmitForm={() => { }} marginY="10px" />
             </Box>
         </Box>
+        <DisqusComments post={article}/>
         <Box as="section">
                     <Heading marginX="1.4rem" marginTop="2rem" fontSize={'1.6rem'} color={colors.default} fontWeight="300">
                         Browse More News

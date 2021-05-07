@@ -10,7 +10,7 @@ interface Props {
 export const Chakra: React.FC<Props> = ({ cookies, children }) => {
     const colorModeManager = typeof cookies === 'string' ? cookieStorageManager(cookies) : localStorageManager;
     return (
-        <ChakraProvider resetCSS   colorModeManager={colorModeManager} >
+        <ChakraProvider  colorModeManager={colorModeManager} >
             {children}
         </ChakraProvider>
     );
