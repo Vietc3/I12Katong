@@ -8,10 +8,6 @@ export const NAVBAR_LINKS = [
         name: 'STORES',
     },
     {
-        to: '/articles',
-        name: 'ARTWORKS',
-    },
-    {
         to: '/deals',
         name: 'DEALS',
     },
