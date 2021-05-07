@@ -56,7 +56,7 @@ const EventDetails = ({ storyProp, storyAllProp }: Props) => {
                 <NewsletterForm onSubmitForm={() => { }} marginY="10px" />
             </Box>
         </Box>
-        <DisqusComments post={article}/>
+        <DisqusComments post={storyProp}/>
         <Box as="section">
                     <Heading marginX="1.4rem" marginTop="2rem" fontSize={'1.6rem'} color={colors.default} fontWeight="300">
                         Browse More News
