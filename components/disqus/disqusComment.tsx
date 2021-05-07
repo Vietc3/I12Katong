@@ -9,7 +9,7 @@ const DisqusComments = ({ post }:Props) => {
   
   const disqusShortname = "blogstore-1"
   const disqusConfig = {
-    url: "https://i12-katong.vercel.app/article/"+post.id,
+    url: "https://i12-katong.vercel.app/articles/"+post.id,
     identifier: post.content.id, // Single post id
     title: post.content.title // Single post title
   }
